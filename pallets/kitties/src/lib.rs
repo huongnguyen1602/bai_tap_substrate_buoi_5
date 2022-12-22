@@ -35,8 +35,8 @@ use sp_runtime::SaturatedConversion;
 use frame_support::traits::Randomness;
 
 use sp_runtime::traits::Hash;
-#[cfg(feature = "std")]
-use frame_support::serde::{Deserialize, Serialize};
+//#[cfg(feature = "std")]
+//use frame_support::serde::{Deserialize, Serialize};
 
 
 #[frame_support::pallet]
@@ -57,7 +57,7 @@ pub use super::*;
 
 	
 	#[derive(Clone, Encode, Decode, PartialEq, Copy, RuntimeDebug, TypeInfo, MaxEncodedLen)]
-	#[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
+	//#[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
 	pub enum Gender {
 		Male,
 		Female,
