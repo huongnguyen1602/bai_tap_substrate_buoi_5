@@ -134,10 +134,11 @@ pub use super::*;
 	impl<T:Config> GenesisBuild<T> for GenesisConfig<T>{
 		fn build(&self){
 			for (dna, price, owner, create_date) in self.genesis_kitty.clone() {
-				let gender = match Pallet::<T>::gen_gender(&dna.encode()){
-					Ok(res) => res,
-					_ => Gender::Female,
-				};
+				// let gender = match Pallet::<T>::gen_gender(&dna.encode()){
+				// 	Ok(res) => res,
+				// 	_ => Gender::Female,
+				// };
+				let gender = Pallet::<T>::gen_gender(&dna.encode()).unwrap();
 				let now = create_date;
 				let kitty = Kitty::<T> { dna: dna.clone(), price: price, gender, owner: owner.clone(), created_date: now};
 	
